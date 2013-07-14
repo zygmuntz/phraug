@@ -5,6 +5,8 @@ A set of simple Python scripts for pre-processing large files, things like split
 
 See [http://fastml.com/processing-large-files-line-by-line/](http://fastml.com/processing-large-files-line-by-line/) for the basic idea.
 
+There's always at least one input file and usually one or more output files. An input file always stays unchanged.
+
 Format conversion
 -----------------
 
