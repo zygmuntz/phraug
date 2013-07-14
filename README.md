@@ -35,7 +35,7 @@ Convert tab-separated file to comma-separated file.
 Other operations
 ----------------
 
-`chunk.py <input file> <number of output files> [<random seed>]
+`chunk.py <input file> <number of output files> [<random seed>]`
 
 Split a file randomly line by line into a number of smaller files. Might be useful for preparing cross-validation. Output files will have the base nume suffixed with a chunk number, for example `data.csv` will be chunked into `data_0.csv`, `data_1.csv` etc.
 
@@ -58,4 +58,5 @@ Split a file into two randomly. Default P (probability of writing to the first f
 Save a subset of lines from an input file to an output file. Start at _offset_ (default 0), save _lines_ (default 100).
 	
 	
-	
+
+
