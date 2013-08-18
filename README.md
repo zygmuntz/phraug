@@ -35,7 +35,7 @@ Convert LIBSVM to VW.
 Convert tab-separated file to comma-separated file.
 
 
-Column means, standard deviation and normalization
+Column means, standard deviations and normalization
 --------------------------------------------------
 
 How do you normalize (or _standardize_ or _shift and scale_) your data if it doesn't fit into memory? With these two scripts. 
