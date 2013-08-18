@@ -45,10 +45,10 @@ Split a file randomly line by line into a number of smaller files. Might be usef
 
 Count lines in a file. On Unix you can do it with `wc -l`
 
-`delete_cols.py <input file> <output_file> <indices of columns to delete separated by whitespace>`
+`delete_cols.py <input file> <output_file> <indices of columns to delete>`
 `delete_cols.py train.csv train_del.csv 0 2 3`
 
-Delete some columns from a CSV file. Indexes start with 0.
+Delete some columns from a CSV file. Indexes start with 0. Separate them with whitespace.
 
 `sample.py <input file> <output file> [<P = 0.5>]`
 
