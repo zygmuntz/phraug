@@ -44,6 +44,7 @@ How do you normalize (or _standardize_ or _shift and scale_) your data if it doe
 
 Compute column means and standard deviations from data in csv file. Can skip label if present. Numbers only. The first line of the output file contains means, the second one standard deviations.
 
+This script uses f_is_headers module, which contains is_headers() function. The purpose of the function is to automatically define if the [first] line in file contains headers.
 
 `normalize.py <stats file> <input file> <output file> [<label index>]`
 
