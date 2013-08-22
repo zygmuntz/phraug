@@ -30,22 +30,18 @@ i = open( input_file )
 o1 = open( output_file1, 'wb' )
 o2 = open( output_file2, 'wb' )
 
-reader = csv.reader( i )
-writer1 = csv.writer( o1 )
-writer2 = csv.writer( o2 )
-
 #headers = reader.next()
 #writer1.writerow( headers )
 #writer2.writerow( headers )
 
 counter = 0
 
-for line in reader:
+for line in i:
 	r = random.random()
 	if r > P:
-		writer2.writerow( line )
+		o2.write( line )
 	else:
-		writer1.writerow( line )
+		o1.write( line )
 	
 	counter += 1
 	if counter % 100000 == 0:
