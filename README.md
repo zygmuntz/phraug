@@ -75,7 +75,7 @@ Sample lines from an input file with probability P. Similiar to `split.py`, but 
 
 `shuffle.py input_file.csv output_file.csv [<max. lines in memory = 25000>] [<random seed>]`
 
-Shuffle (randomize order of) lines in a [big] file. Similiar to Unix' `shuf`. Useful for files that don't fit in memory. For fastest operation, set <max. lines in memory> as big as possible - this will result in fewer passes over the input file.
+Shuffle (randomize order of) lines in a [big] file. Similiar to Unix' `shuf`. Useful for files that don't fit in memory. For fastest operation, set _max. lines in memory_ as big as possible - this will result in fewer passes over the input file.
 
 `split.py <input file> <output file 1> <output file 2> [<P = 0.9>] [<random seed>]`
 
