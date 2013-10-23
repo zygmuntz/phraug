@@ -48,14 +48,12 @@ o_f = open( output_file, 'wb' )
 	
 order = range( count )
 random.shuffle( order )
-print order
 
 # un-shuffle
 
 order_dict = { shuf_i: orig_i for shuf_i, orig_i in enumerate( order ) }
 # sort by original key asc, will get shuffled keys in the right order to unshuffle
 order = sorted( order_dict, key = order_dict.get )
-print order
 
 epoch = 0
 	

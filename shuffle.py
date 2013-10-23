@@ -47,7 +47,6 @@ o_f = open( output_file, 'wb' )
 	
 order = range( count )
 random.shuffle( order )
-print order
 
 epoch = 0
 	
