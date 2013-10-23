@@ -1,6 +1,6 @@
 """
-Shuffle lines in a [big] file
-shuffle.py input_file.csv output_file.csv [<max. lines in memory>] [<random seed>]
+Unshuffle previously shuffled file
+unshuffle.py input_file.csv output_file.csv <max. lines in memory> <random seed>
 
 """
 
@@ -13,7 +13,7 @@ output_file = sys.argv[2]
 try:
 	lines_in_memory = int( sys.argv[3] )
 except IndexError:
-	lines_in_memory = 25000
+	lines_in_memory = 100000
 	
 print "caching %s lines at a time..." % ( lines_in_memory )
 	
@@ -22,7 +22,8 @@ try:
 	random.seed( random_seed )
 	print "random seed: %s" % ( random_seed )
 except IndexError:
-	pass
+	print "need a seed..."
+	sys.exit( 1 )
 	
 # first count
 
@@ -41,12 +42,19 @@ print count
 		
 # then shuffle		
 
-print "shuffling..."
+print "(un)shuffling..."
 
 o_f = open( output_file, 'wb' )
 	
 order = range( count )
 random.shuffle( order )
+print order
+
+# un-shuffle
+
+order_dict = { shuf_i: orig_i for shuf_i, orig_i in enumerate( order ) }
+# sort by original key asc, will get shuffled keys in the right order to unshuffle
+order = sorted( order_dict, key = order_dict.get )
 print order
 
 epoch = 0
