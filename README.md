@@ -86,6 +86,8 @@ Split a file into two randomly. Default P (probability of writing to the first f
 
 Save a subset of lines from an input file to an output file. Start at _offset_ (default 0), save _lines_ (default 100).
 	
+`unshuffle.py <input file> <output file> <max. lines in memory> <random seed>`
 	
+Unshuffle a previously shuffled file  (or any file) to the original order. Syntax is the same as for `shuffle.py`, but the seed is mandatory so _max. lines in memory_ is mandatory also.
 
 
