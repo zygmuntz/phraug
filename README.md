@@ -90,8 +90,3 @@ Save a subset of lines from an input file to an output file. Start at _offset_ (
 	
 Unshuffle a previously shuffled file  (or any file) to the original order. Syntax is the same as for `shuffle.py`, but the seed is mandatory so _max. lines in memory_ is mandatory also.
 
-
-
-
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/zygmuntz/phraug/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
-
