@@ -21,6 +21,11 @@ try:
 except IndexError:
 	seed = None
 	
+try:
+	skip_headers = sys.argv[6]
+except IndexError:
+	skip_headers = False	
+	
 print "P = %s" % ( P )
 
 if seed:
@@ -30,9 +35,8 @@ i = open( input_file )
 o1 = open( output_file1, 'wb' )
 o2 = open( output_file2, 'wb' )
 
-#headers = reader.next()
-#writer1.writerow( headers )
-#writer2.writerow( headers )
+if skip_headers:
+	i.readline()
 
 counter = 0
 
