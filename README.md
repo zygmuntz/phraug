@@ -37,10 +37,10 @@ Convert LIBSVM to VW.
 Convert tab-separated file to comma-separated file.
 
 
-Column means, standard deviations and normalization
+Column means, standard deviations and standardization
 --------------------------------------------------
 
-How do you normalize (or _standardize_ or _shift and scale_) your data if it doesn't fit into memory? With these two scripts. 
+How do you standardize (or _shift and scale_) your data if it doesn't fit into memory? With these two scripts. 
 
 `colstats.py <input file> <output file> [<label index>]`
 
@@ -48,9 +48,9 @@ Compute column means and standard deviations from data in csv file. Can skip lab
 
 This script uses f_is_headers module, which contains is_headers() function. The purpose of the function is to automatically define if the [first] line in file contains headers.
 
-`normalize.py <stats file> <input file> <output file> [<label index>]`
+`standardize.py <stats file> <input file> <output file> [<label index>]`
 
-Normalize (shift and scale to zero mean and unit standard deviation) data from csv file. Meant to be used with column stats file produced by colstats.py. Numbers only.
+Standardize (shift and scale to zero mean and unit standard deviation) data from csv file. Meant to be used with column stats file produced by colstats.py. Numbers only.
 
 
 Other operations
