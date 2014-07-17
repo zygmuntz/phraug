@@ -40,7 +40,7 @@ except IndexError:
 	skip_headers = 0	
 
 i = open( input_file )
-o = open( output_file, 'w' )
+o = open( output_file, 'wb' )
 
 reader = csv.reader( i )
 if skip_headers:
@@ -48,7 +48,7 @@ if skip_headers:
 
 for line in reader:
 	if label_index == -1:
-		label = 0
+		label = 1
 	else:
 		label = line.pop( label_index )
 		
