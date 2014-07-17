@@ -12,6 +12,8 @@ __[phraug2](https://github.com/zygmuntz/phraug2) is available, with improved com
 Format conversion
 -----------------
 
+`[...]` means that the parameter is optional.
+
 `csv2libsvm.py <input file> <output file> [<label index = 0>] [<skip headers = 0>]`
 
 Convert CSV to LIBSVM format. If there are no labels in the input file, specify _label index_ = -1. If there are headers in the input file, specify _skip headers_ = 1.
