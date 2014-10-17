@@ -26,6 +26,11 @@ try:
 except IndexError:
 	skip_headers = False
 	
+try:
+	skip_headers = sys.argv[6]
+except IndexError:
+	skip_headers = False	
+	
 print "P = %s" % ( P )
 
 if seed:
@@ -37,11 +42,6 @@ o2 = open( output_file2, 'wb' )
 
 if skip_headers:
 	i.readline()
-	# no reader in this script, and no writer
-	# and no writing headers!!!
-	#headers = reader.next()
-	#writer1.writerow( headers )
-	#writer2.writerow( headers )
 
 counter = 0
 

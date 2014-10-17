@@ -1,8 +1,12 @@
-'convert libsvm file to csv'
-'libsvm2csv.py <input file> <output file> <x dimensionality>'
+#!/usr/bin/env python
 
-import sys, csv
-#import numpy as np
+"""
+convert libsvm file to csv'
+libsvm2csv.py <input file> <output file> <X dimensionality>
+"""
+
+import sys
+import csv
 
 input_file = sys.argv[1]
 output_file = sys.argv[2]

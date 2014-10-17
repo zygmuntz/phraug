@@ -12,6 +12,8 @@ __[phraug2](https://github.com/zygmuntz/phraug2) is available, with improved com
 Format conversion
 -----------------
 
+`[...]` means that the parameter is optional.
+
 `csv2libsvm.py <input file> <output file> [<label index = 0>] [<skip headers = 0>]`
 
 Convert CSV to LIBSVM format. If there are no labels in the input file, specify _label index_ = -1. If there are headers in the input file, specify _skip headers_ = 1.
@@ -37,10 +39,10 @@ Convert LIBSVM to VW.
 Convert tab-separated file to comma-separated file.
 
 
-Column means, standard deviations and normalization
+Column means, standard deviations and standardization
 --------------------------------------------------
 
-How do you normalize (or _standardize_ or _shift and scale_) your data if it doesn't fit into memory? With these two scripts. 
+How do you standardize (or _shift and scale_) your data if it doesn't fit into memory? With these two scripts. 
 
 `colstats.py <input file> <output file> [<label index>]`
 
@@ -48,9 +50,9 @@ Compute column means and standard deviations from data in csv file. Can skip lab
 
 This script uses f_is_headers module, which contains is_headers() function. The purpose of the function is to automatically define if the [first] line in file contains headers.
 
-`normalize.py <stats file> <input file> <output file> [<label index>]`
+`standardize.py <stats file> <input file> <output file> [<label index>]`
 
-Normalize (shift and scale to zero mean and unit standard deviation) data from csv file. Meant to be used with column stats file produced by colstats.py. Numbers only.
+Standardize (shift and scale to zero mean and unit standard deviation) data from csv file. Meant to be used with column stats file produced by colstats.py. Numbers only.
 
 
 Other operations
@@ -89,9 +91,4 @@ Save a subset of lines from an input file to an output file. Start at _offset_ (
 `unshuffle.py <input file> <output file> <max. lines in memory> <random seed>`
 	
 Unshuffle a previously shuffled file  (or any file) to the original order. Syntax is the same as for `shuffle.py`, but the seed is mandatory so _max. lines in memory_ is mandatory also.
-
-
-
-
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/zygmuntz/phraug/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 

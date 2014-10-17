@@ -1,6 +1,6 @@
-'normalize (shift and scale to zero mean and unit standard deviation) data from csv file'
+'standardize (shift and scale to zero mean and unit standard deviation) data from csv file'
 'meant to be used together with colstats.py'
-'normalize.py <stats file> <input file> <output file> [<label index>]'
+'standardize.py <stats file> <input file> <output file> [<label index>]'
 
 import sys, csv
 import numpy as np
