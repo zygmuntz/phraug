@@ -22,6 +22,7 @@ for line in i:
 	except ValueError:
 		print "line with ValueError (skipping):"
 		print line
+		continue
 		
 	if convert_zero_to_negative_one and y == '0':
 		y = '-1'
