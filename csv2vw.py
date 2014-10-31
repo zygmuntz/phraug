@@ -1,5 +1,10 @@
-'Convert CSV file to vw format. Headers can be skipped with argv[4] == true.'
-'-1 for label index if no label in file'
+"""
+Convert CSV file to vw format. Headers can be skipped with argv[4] == true.
+Use -1 for label index if there no labels in the input file
+
+phraug2 version has an option to ignore columns:
+https://github.com/zygmuntz/phraug2/blob/master/csv2vw.py
+"""
 
 import sys
 import csv
