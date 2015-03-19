@@ -1,6 +1,6 @@
 """
 Shuffle lines in a [big] file
-shuffle.py input_file.csv output_file.csv [<max. lines in memory>] [<random seed>]
+shuffle.py <input_file> <output_file> [<preserve headers?>] [<max. lines in memory>] [<random seed>]
 
 """
 
@@ -11,14 +11,19 @@ input_file = sys.argv[1]
 output_file = sys.argv[2]
 
 try:
-	lines_in_memory = int( sys.argv[3] )
+	preserve_headers = int( sys.argv[3] )
+except IndexError:
+	preserve_headers = 0
+
+try:
+	lines_in_memory = int( sys.argv[4] )
 except IndexError:
 	lines_in_memory = 25000
 	
 print "caching %s lines at a time..." % ( lines_in_memory )
 	
 try:
-	random_seed = sys.argv[4]
+	random_seed = sys.argv[5]
 	random.seed( random_seed )
 	print "random seed: %s" % ( random_seed )
 except IndexError:
@@ -28,24 +33,25 @@ except IndexError:
 
 print "counting lines..."
 
-f = open( input_file )
+i_f = open( input_file )
+o_f = open( output_file, 'wb' )
 
-count =  0
-for line in f:
-	count += 1
+if preserve_headers:
+	headers = i_f.readline()
+	o_f.write( headers )
+
+counter =  0
+for line in i_f:
+	counter += 1
 	
-	if count % 100000 == 0:
-		print count
+	if counter % 100000 == 0:
+		print counter
 	
-print count
+print counter
 		
-# then shuffle		
-
 print "shuffling..."
 
-o_f = open( output_file, 'wb' )
-	
-order = range( count )
+order = range( counter )
 random.shuffle( order )
 
 epoch = 0
@@ -61,10 +67,13 @@ while order:
 	
 	order = order[lines_in_memory:]
 	
-	f.seek( 0 )
+	i_f.seek( 0 )
+	if preserve_headers:
+		i_f.readline()
+		
 	count = 0
 		
-	for line in f:
+	for line in i_f:
 		if count in current_chunk_dict:
 			current_lines[count] = line
 			current_lines_count += 1
