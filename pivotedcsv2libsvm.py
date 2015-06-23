@@ -2,7 +2,7 @@
 
 """
 Convert pivoted CSV file to libsvm format. Works only with numeric variables.
-Expecting no labels and no headers. If present, headers can be skipped with argv[4] == 1.
+Expecting no labels and no headers. If present, headers can be skipped with argv[3] == 1.
 
 Example call: python pivotedlibsvm2csv.py pivoted.csv output.txt
 format: row_id, zero_based_feature_index [, value = 1]
@@ -25,7 +25,6 @@ import sys
 import csv
 
 def construct_line( label, line ):
-	print line
 	new_line = []
 	if float( label ) == 0.0:
 		label = "0"
@@ -38,7 +37,6 @@ def construct_line( label, line ):
 		new_item = "%s:%s" % ( i + 1, item )
 		new_line.append( new_item )
 		
-	print new_line
 	new_line = " ".join( new_line )
 	new_line += "\n"
 	return new_line
@@ -67,7 +65,6 @@ current_row = line[0].strip()
 current_feature = int( line[1].strip())
 current_value = line[2].strip() if len( line ) > 2 else '1'
 current_line = [ ( current_feature, current_value ) ]
-print current_line
 
 for line in reader:
 	row_id = line[0]
