@@ -14,8 +14,8 @@ def construct_line( label, line ):
 	if float( label ) == 0.0:
 		label = "0"
 	new_line.append( label )
-	
-	for i, item in enumerate( line ):
+
+	for i, item in line.items() if isinstance(line, dict) else enumerate(line):
 		if item == '' or float( item ) == 0.0:
 			continue
 		new_item = "%s:%s" % ( i + 1, item )
@@ -33,24 +33,50 @@ try:
 	label_index = int( sys.argv[3] )
 except IndexError:
 	label_index = 0
-	
+
 try:
 	skip_headers = sys.argv[4]
 except IndexError:
-	skip_headers = 0	
+	skip_headers = 0
 
-i = open( input_file )
+try:
+	pivot = int( sys.argv[5] )
+except IndexError:
+	pivot = -1
+
+i = open( input_file, 'rb' )
 o = open( output_file, 'wb' )
 
 reader = csv.reader( i )
-if skip_headers:
+
+if skip_headers in ['true', '1']:
 	headers = reader.next()
+
+# pivot column "pivot"
+# converts CSV: "sampleID, feature0Index [, value]"
+# id1, 1
+# id1, 2
+# id1, 3
+# id2, 2, 0.5
+# id2, 3, 0.6
+# id2, 4, 0.7
+# into SVM: "label featureIndex:value ..."
+#1 2:1 3:1 4:1
+#1 3:0.5 4:0.6 5:0.7
+
+if pivot > -1:
+	piv = {}
+	for line in reader:
+		if not piv.has_key(line[pivot]): piv[ line[pivot] ] = {}
+		piv[ line[pivot] ][ int(line[ int(not pivot) ]) ] = line[2] if len(line) > 2 else 1
+	reader = piv.values()
 
 for line in reader:
 	if label_index == -1:
-		label = 1
+		label = '1'
 	else:
 		label = line.pop( label_index )
-		
+
 	new_line = construct_line( label, line )
 	o.write( new_line )
+
