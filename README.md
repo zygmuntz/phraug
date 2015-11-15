@@ -7,7 +7,7 @@ See [http://fastml.com/processing-large-files-line-by-line/](http://fastml.com/p
 
 There's always at least one input file and usually one or more output files. An input file always stays unchanged.
 
-__[phraug2](https://github.com/zygmuntz/phraug2) is available, with improved command line arguments parsing.__ Check it out.
+__[phraug2](https://github.com/zygmuntz/phraug2) is available. It offers improved handling of command line arguments.__ Check it out.
 
 Format conversion
 -----------------
